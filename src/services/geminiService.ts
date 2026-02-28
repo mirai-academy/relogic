@@ -2,11 +2,11 @@ import { GoogleGenAI, Type, ThinkingLevel } from "@google/genai";
 import { Question, Difficulty, QuizResult, CharacterType } from "../types";
 import { PERSPECTIVE_THEMES } from "../constants";
 
-// Viteの流儀に合わせ、VITE_ から始まる環境変数を参照するように変更
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
+// Viteの環境変数（VITE_GEMINI_API_KEY）を使用するように修正
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
 if (!apiKey) {
-  console.warn("API Key is missing. Please set VITE_GEMINI_API_KEY.");
+  console.error("エラー: VITE_GEMINI_API_KEY が設定されていません。.envファイルまたはGitHub Secretsを確認してください。");
 }
 
 const ai = new GoogleGenAI({ apiKey: apiKey || "" });
