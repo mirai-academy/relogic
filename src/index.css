@@ -47,3 +47,9 @@
     box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
   }
 }
+
+/* index.css の一番下に追加 */
+.scanline, 
+div[class*="bg-[linear-gradient"] {
+  display: none !important;
+}
